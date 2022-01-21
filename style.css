@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
+
+* {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "Roboto Slab";
+  margin: 0;
+}
+
+nav {
+  width: 300px;
+  background-color: #eee;
+  border-right: 2px solid #777;
+  height: 100vh;
+  overflow-y: scroll;
+}
+.nav-bar {
+  text-align: center;
+}
+nav header {
+  padding: 15px;
+}
+nav a {
+  display: block;
+  color: #000;
+  text-align: center;
+  padding: 15px;
+  border-top: 1px solid #777;
+  text-decoration: none;
+}
+main {
+  flex: 1;
+  height: 100vh;
+  overflow-y: scroll;
+}
+section,
+.bonus {
+  padding: 20px;
+  line-height: 1.5;
+}
+header {
+  font-size: 25px;
+  /*   padding: 15px; */
+}
+.img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 90%;
+}
+.code {
+  display: flex;
+  background-color: #ddd;
+  padding: 15px;
+  border-radius: 5px;
+}
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+  }
+  nav {
+    height: 200px;
+    overflow-y: scroll;
+    border-right: none;
+    border-bottom: 5px solid #777;
+    background-color: yellow;
+    /*     color: white; */
+    width: 100%;
+    /*     position:fixed; */
+  }
+  main {
+    /*     position:relative; */
+    background-color: yellow;
+    height: auto;
+    width: 100%;
+  }
+  .code {
+    color: white;
+    background-color: black;
+  }
+}

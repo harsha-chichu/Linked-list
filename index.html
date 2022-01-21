@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <nav id="navbar">
+        <header class="nav-bar">Linked List Documentation</header>
+        
+        <a href="#Introduction" class="nav-link">Introduction</a>
+        <a href="#Why_use_linked_list_over_array?" class="nav-link">Why use linked list over array?</a>
+        <a href="#Types_of_Linked_List" class="nav-link">Types of Linked List
+      </a>
+        <a href="#Single_linked_list" class="nav-link">Single linked list
+      </a>
+        <a href="#Double_linked_list" class="nav-link">Double linked list
+      </a>
+        <a href="#Circular_linked_list" class="nav-link">Circular linked list
+      </a>
+        <a href="#Inserting_at_Beginning" class="nav-link">Inserting at Beginning
+      </a>
+        <a href="#Inserting_at_the_End_of_the_List" class="nav-link">Inserting at the End of the List
+      </a>
+        <a href="#Inserting_after_specified_node" class="nav-link">Inserting after specified node
+      </a>
+        <a href="#Deleting_at_Beginning" class="nav-link">Deleting at Beginning
+      </a>
+        <a href="#Deleting_at_the_End_of_the_List" class="nav-link">Deleting at the End of the List
+      </a>
+        <a href="#Deleting_after_specified_node" class="nav-link">Deleting after specified node
+      </a>
+        <a href="#Traversing" class="nav-link">Traversing
+      </a>
+        <a href="#Advantage" class="nav-link">Advantage
+      </a>
+        <a href="#Disadvantage" class="nav-link">Disadvantage
+      </a>
+        <a href="#Applications" class="nav-link">Applications</a>
+      </nav>
+      
+      <main id="main-doc">
+        <section class="main-section" id="Introduction">
+          <header>Introduction</header>
+          
+          <p>
+            In computer science, a linked list is a linear collection of data elements whose order is not given by their physical placement in memory. Instead, each element points to the next. It is a data structure consisting of a collection of nodes which together represent a sequence. In its most basic form, each node contains: data, and a reference (in other words, a link) to the next node in the sequence. This structure allows for efficient insertion or removal of elements from any position in the sequence during iteration. More complex variants add additional links, allowing more efficient insertion or removal of nodes at arbitrary positions. A drawback of linked lists is that access time is linear (and difficult to pipeline). Faster access, such as random access, is not feasible. Arrays have better cache locality compared to linked lists.
+          </p>
+          <img class="img" src="https://static.javatpoint.com/ds/images/linked-list.png" alt="linked-list">
+          <ul>
+            <li>Linked List can be defined as collection of objects called nodes that are randomly stored
+              in the memory</li>
+            <li>A node contains two fields i.e. data stored at that particular address and the pointer which
+              contains the address of the next node in the memory.</li>
+            <li>The last node of the list contains pointer to the null.</li>
+          </ul>
+          <h3>Uses of Linked List
+      </h3>
+          <ul>
+            <li>The list is not required to be contiguously present in the memory. The node can reside
+      anywhere in the memory and linked together to make a list. This achieves optimized
+      utilization of space.
+      </li>
+            <li>list size is limited to the memory size and doesn't need to be declared in advance.</li>
+            <li>Empty node can’t be present in the linked list.</li>
+            <li>Empty node can’t be present in the linked list.</li>
+          </ul>
+        </section>
+        
+        <section class="main-section" id="Why_use_linked_list_over_array?">
+          <header>Why use linked list over array?</header>
+          <p>Till now, we were using array data structure to organize the group of elements that are to be
+      stored individually in the memory. However, Array has several advantages and disadvantages
+      which must be known in order to decide the data structure which will be used throughout the
+      program.</p>
+        </section>
+        
+        <section class="main-section" id="Types_of_Linked_List">
+          <header>Types of Linked List</header>
+          <p>The following are the types of linked list:</p>
+          <ol>
+            <li>Single linked list</li>
+            <li>Double linked list</li>
+            <li>Circular linked list</li>
+          </ol>
+        </section>
+        
+        <section class="main-section" id="Single_linked_list">
+          <header>Single linked list</header>
+          <p>It is the commonly used linked list in programs. If we are talking about the linked list, it means it
+      is a singly linked list. The singly linked list is a data structure that contains two parts, i.e., one is
+      the data part, and the other one is the address part, which contains the address of the next or the
+      successor node. The address part in a node is also known as a pointer.
+      </p>
+          <p>Suppose we have three nodes, and the addresses of these three nodes are 100, 200 and 300
+      respectively. The representation of three nodes as a linked list is shown in the below figure:</p>
+          <img class="img" src="https://static.javatpoint.com/ds/images/singly-link-list.png" alt="single linked list">
+          <p>We can observe in the above figure that there are three different nodes having address 100, 200
+      and 300 respectively. The first node contains the address of the next node, i.e., 200, the second
+      node contains the address of the last node, i.e., 300, and the third node contains the NULL value
+      in its address part as it does not point to any node. The pointer that holds the address of the initial
+      node is known as a head pointer.</p>
+          <p>The linked list, which is shown in the above diagram, is known as a singly linked list as it
+      contains only a single link. In this list, only forward traversal is possible; we cannot traverse in
+      the backward direction as it has only one link in the list.</p>
+          <h3>Representation of the node in a singly linked list</h3>
+          <code class="code">
+            struct node{<br>
+               int data;<br>
+               struct node *next;<br>
+            };
+          </code>
+          <p>
+            In the above representation, we have defined a user-defined structure named a node containing
+      two members, the first one is data of integer type, and the other one is the pointer (next) of the
+      node type.
+          </p>
+        </section>
+        
+        <section class="main-section" id="Double_linked_list">
+          <header>Double linked list</header>
+          <p>As the name suggests, the doubly linked list contains two pointers. We can define the doubly
+      linked list as a linear data structure with three parts: the data part and the other two address part.
+      In other words, a doubly linked list is a list that has three parts in a single node, includes one data
+      part, a pointer to its previous node, and a pointer to the next node.</p>
+        <p>Suppose we have three nodes, and the address of these nodes are 100, 200 and 300, respectively.
+      The representation of these nodes in a doubly-linked list is shown below
+      </p>
+        <img src="https://static.javatpoint.com/ds/images/doubly-linked-list2.png" alt="double linked list" class="img">
+        <p>As we can observe in the above figure, the node in a doubly-linked list has two address parts;
+      one part stores the address of the next while the other part of the node stores the previous node's
+      address. The initial node in the doubly linked list has the NULL value in the address part, which
+      provides the address of the previous node.</p>
+          <h3>Representation of the node in a doubly linked list:</h3>
+        <code class="code">
+          struct node{<br>
+             int data;<br>
+             struct node *next;<br>
+             struct node *prev;<br>
+          };
+        </code>
+          <p>
+            In the above representation, we have defined a user-defined structure named a node with three
+      members, one is data of integer type, and the other two are the pointers, i.e., next and prev of
+      the node type. The next pointer variable holds the address of the next node, and the prev
+      pointer holds the address of the previous node. The type of both the pointers, i.e., next and
+      prev is struct node as both the pointers are storing the address of the node of the struct
+      node type
+          </p>
+        </section>
+        
+        <section class="main-section" id="Circular_linked_list">
+          <header>Circular linked list</header>
+          <p>A circular linked list is a variation of a singly linked list. The only difference between the singly
+      linked list and a circular linked list is that the last node does not point to any node in a singly
+      linked list, so its link part contains a NULL value. On the other hand, the circular linked list is a
+      list in which the last node connects to the first node, so the link part of the last node holds the
+      first node's address. The circular linked list has no starting and ending node. We can traverse in
+      any direction, i.e., either backward or forward. The diagrammatic representation of the circular
+      linked list is shown below:</p>
+          <code class="code">
+            struct node{<br>
+               int data;<br>
+               struct node *next;<br>
+            };
+          </code>
+          <p>A circular linked list is a sequence of elements in which each node has a link to the next node,
+      and the last node is having a link to the first node. The representation of the circular linked list
+      will be similar to the singly linked list, as shown below:</p>
+          <img src="https://static.javatpoint.com/ds/images/circular-singly-linked-list.png" alt="circular linked list" class="img">
+        </section>
+        
+        <section class="bonus" id="Insertion">
+          <header>Insertion</header>
+          <p>The insertion into a singly linked list can be performed at different positions. Based on the
+      position of the new node being inserted, the insertion is categorized into the following categories.
+      </p>
+          <ol>
+            <li>Inserting at Beginning</li>
+            <li>Inserting at the End of the List</li>
+            <li>Inserting after specified node</li>
+          </ol>
+        </section> 
+        
+        <section class="main-section" id="Inserting_at_Beginning">
+          <header>Inserting at Beginning</header>
+          <p>Inserting a new element into a singly linked list at beginning is quite simple. We just need to
+      make a few adjustments in the node links. There are the following steps which need to be
+      followed in order to inser a new node in the list at beginning.</p>
+          <ol>
+            <li>Allocate the space for the new node and store data into the data part of the node. This will
+      be done by the following statements.<br>
+       ptr = (struct node *) malloc(sizeof(struct node *));<br>
+       ptr → data = item</li>
+            <li>Make the link part of the new node pointing to the existing first node of the list. This will
+      be done by using the following statement.<br>
+       ptr->next = head</li>
+            <li>At the last, we need to make the new node as the first node of the list this will be done by
+      using the following statement.<br>
+       head = ptr;</li>
+          </ol>
+          <img src="https://static.javatpoint.com/ds/images/insertion-in-singly-linked-list-at-beginning.png" alt="insert at beginning" class="img">
+          <h3>Function for inserting element at beginning of the list</h3>
+          <code class="code">
+            void beginsert()<br>
+      {<br>
+       struct node *ptr;<br>
+       int item;<br>
+       ptr = (struct node *) malloc(sizeof(struct node *));<br>
+       if(ptr == NULL)<br>
+       {<br>
+       printf("\n memory insufficient to allocate");<br>
+       }<br>
+       else<br>
+       {<br>
+       printf("\nEnter value\n");<br>
+       scanf("%d",&item);<br>
+       ptr->data = item;<br>
+       ptr->next = head; head = ptr;<br>
+       printf("\nNode inserted");<br>
+       }<br>
+      } 
+          </code>
+        </section> 
+         
+        <section class="main-section" id="Inserting_at_the_End_of_the_List">
+          <header>Inserting at the End of the List
+      </header>
+          <p>In order to insert a node at the last, there are two following scenarios which need to be
+      mentioned.
+      </p>
+          <ol>
+            <li>The node is being added to an empty list(CASE 1)</li>
+            <li>The node is being added to the end of the linked list(CASE2)
+      in the first case,(CASE1)
+      </li>
+          </ol>
+          <ul>
+            <li>The condition (head == NULL) gets satisfied. Hence, we just need to allocate the space
+      for the node by using malloc statement in C. Data and the link part of the node are set up
+      by using the following statements.<br>
+      ptr->data = item;<br>
+       ptr -> next = NULL; </li>
+            <li>Since, ptr is the only node that will be inserted in the list hence, we need to make this
+      node pointed by the head pointer of the list. This will be done by using the following
+      Statements.<br>
+      Head = ptr;<br>
+      In the second case: CASE(2):
+      </li>
+            <li>The condition Head = NULL would fail, since Head is not null. Now, we need to declare
+      a temporary pointer temp in order to traverse through the list. temp is made to point the
+      first node of the list.<br>
+      Temp = head; </li>
+            <li>Then, traverse through the entire linked list using the statements:<br>
+      while (temp→ next != NULL)<br>
+       temp = temp → next; </li>
+            <li>At the end of the loop, the temp will be pointing to the last node of the list. Now, allocate
+      the space for the new node, and assign the item to its data part. Since, the new node is
+      going to be the last node of the list hence, the next part of this node needs to be pointing
+      to the null. We need to make the next part </li>
+            <li>If the temp node (which is currently the last node of the list) point to the new node (ptr)
+      .<br>temp = head;<br>
+       while (temp -> next != NULL)<br>
+       {<br>
+       temp = temp -> next;<br>
+       }<br>
+       temp->next = ptr;<br>
+       ptr->next = NULL; </li>
+          </ul>
+          <img src="data:image/png;base64,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" alt="" class="img">
+          <h3>Function for inserting element at the end of the list 
+      </h3>
+          <code class="code">void lastinsert()<br>
+      {<br>
+       struct node *ptr,*temp;<br>
+       int item;<br>
+       ptr = (struct node*)malloc(sizeof(struct node));<br>
+       if(ptr == NULL)<br>
+       {<br>
+       printf("\nOVERFLOW");<br>
+       }<br>
+       else<br>
+       {<br>
+       printf("\nEnter value?\n"); scanf("%d",&item);<br>
+       ptr->data = item;<br>
+       if(head == NULL)<br>
+       {<br
+       ptr -> next = NULL<br>
+       head = ptr;<br>
+       printf("\nNode inserted");<br>
+       }<br>
+       else<br>
+       {<br>
+       temp = head;<br>
+       while (temp -> next != NULL)<br>
+       {<br>
+       temp = temp -> next;<br>
+       }<br>
+       temp->next = ptr;<br>
+       ptr->next = NULL;<br>
+       printf("\nNode inserted");<br>
+      
+       }<br>
+       }<br>
+      } </code>
+        </section> 
+        
+        <section class="main-section" id="Inserting_after_specified_node">
+          <header>Inserting after specified node</header>
+          <ul>
+            <li>In order to insert an element after the specified number of nodes into the linked list, we
+      need to skip the desired number of elements in the list to move the pointer at the position 
+      after which the node will be inserted. This will be done by using the following
+      statements.<br>
+      emp=head;<br>
+       for(i=0;i&lt loc;i++)<br>
+       {<br>
+       temp = temp->next;<br>
+       if(temp == NULL)<br>
+       {<br>
+       return;<br>
+       }<br>
+       } </li>
+            <li>Allocate the space for the new node and add the item to the data part of it. This will be
+      done by using the following statements.<br>
+      ptr = (struct node *) malloc (sizeof(struct node));<br>
+       ptr->data = item; </li>
+            <li>Now, we just need to make a few more link adjustments and our node at will be inserted
+      at the specified position. Since, at the end of the loop, the loop pointer temp would be
+      pointing to the node after which the new node will be inserted. Therefore, the next part of
+      the new node ptr must contain the address of the next part of the temp (since, ptr will be
+      in between temp and the next of the temp). This will be done by using the following
+      statements.<br>
+      ptr→ next = temp → next;<br>
+      now, we just need to make the next part of the temp, point to the new node ptr. This will insert
+      the new node ptr, at the specified position.<br>
+      temp ->next = ptr;</li>
+          </ul>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAUsAAACYCAMAAABatDuZAAABdFBMVEX////N64v/zMz/zJkAAAD7+/zx8fT///739/mLi4v19fno6O7/uhb/tA3/sg3/pwD/xyL/wxz/rg3Q0NrY2OH/0JyHiZ+ihmv/vxyVl6nH0eK5t7++232ZiIrntkn/zCGUqWdtaXHGmU+wsL6NlKrnsBh/kGHT843L3PW8vLxcXm7Y2Nmrx+6iwOuRtOa5l2G90/O0zfCEq+N1nNSVt+etzID/zdOYt6mkkn6zuMmenp6pqanBwszuvo//2KIkJCSGhoZ5eXx/ZUzaroO3t7c+PkRxcXExMTjl5vBSUlaRkZrOzs6jo6Pl5eV4eIEZISpsXlO5lG+SdVcgGBNZRzRsVkEVDwzdsYQ1KR9IOioaKDhOTk4XFhuen6orKy1mZmYnMTEEAxWuy2+asNTv4MzVw6+uvdKZqLyes9CFnsZ5iqNWZnropABnfJt9mcSFo85YcJM6S2KVq2J8mZ44OUbAkiFqfVxSX0DRpCPQkRTvmADThADzcoeoAAAQGElEQVR4nO2di2Pbxn3H0fl3pyOQpHFxiqOiXYPBXUfB7RKnjwSETcImiBcB11msxBNA2suaxk7itlu2dd0/vzuAL1EicbROFBXhK4qCDg8ePjwAv989fqf8/paoWgpSGq3Trfv7YrrvUdzAXKtb+zfEtG9aGrns3O62NmEZkqZgrtMmLKl62bndbW3EEl92bndbCyz3T2NdSGpY1mrOcv/B42WY+w+fNCzFNWd5Hz7Zv7FE8zE0LMW1wPJfPgV4vP8JwK37twCe3HgI8LRhuYFOsLzx9NN78PAe3Hj82Wfw8MHn+w8alhtogeXRJ/cffMoKIzCM/O3TB/eba3wTLbPk5fLxQ2Cvzx58fr8pl5voxLPn/pOn7LJmt8qn8OTp5839ckMt2Jf37u3fu8f/8GX24v/da1iKq/F75KlhKU8NS3lqWMpTw1KeGEvBRoqGZZ062deHy/r6X0+nHR5mDcs6WcXBKUWnk5gsTW3aKNYJYS2kSwq95ZQqWWvae9YLERUvSe1p2nIaV4OyTuiUlJbKuJ2hy87qVRRj2XCTpIalPDUs5alhKU8NS3lqWMpTw1KepLDsSMjI90AyWDrQR2k/UVA/7du4bytJkvSvYeWIDJbHkOl51G1h8I9h7HexB1Huo2vXHVYGyzaEcW7EOQWHQuGCm400Cyi+bjBlsOxDmEEUmS4UOlgGuKYfWuCG163eTg5Lo4AizvQpywwKE6i8+mTH4wM7Bh323hkox/3Jx45lHV+SZLDEfkDjrm/pgUW7hhu4ZmB2LSqlnzZK2Tcy8BFOUbdHiNJ7pHRsnJKUKC1Q0nSXir4UmwiFtKxmxiHFWog1do2z/2SMxSA+gIc8XzPBP/I0rPQCDI4BEfiklYcQ71L1oAyWewRrGGuzWmU18xlJTYYT4IDG7xk+hY4GGdWU3rMQCgMM9oSLc9/Eu9QAIMfvWa5IVqmmSjnJcaTpeWH6DF04KlmOWGG0QHfBiuG5SXepYUqiD7k3W0JESqFUeLnUC24X6HCgw0mWRtZlQL9/5XJJe9LuYiQCaIVmwIyugJdCxeM3yaJiCeFhvksDkXa9bkOt2kUpf5jpVEMET1tKtWpBLPupISD3xwKiqz9k11mS6pnGX2HI7hxI1Srx5x1bI3gzMf7tJ/X63T8J6Auy0jwRZ9n7qYD+XkT/vsm3hwghiL8RlfB7Y7nI08oXWX1mJ2T85Ae1+oUYy9XjbsVZ/vTv6vXbn/+sXjf/sInluTcZy753Kn0TbcoyOFjk92Xw5Wz5RbHyFi2d5dt1+tnNj9yt31c2ZPn+CG4voAT445zlwcpbtGyWtSjffvvmRx9r22TZxpuXy/fzOcwvIb/9xy8bllwdiFUxlu/P9RWDOVniKL+ardgiy5v1evdJpjmO0m+RpJXaPTttJaTVV1hSx0HtFrZ7KUvCrT5yhsrQQf0WZhumPRu32sTpKKv2JWzfhO3bY/u2q32Vcl8AONyU5QzmVwCLKNex7F0Cy48+pkRhz+TqhcjstSZpIRWt3RChpSTFhvzgQIjlBwviMF9WKG8zlLPkNSzHWCrLb96t1xuMJSZbE+p1qL45yw8++OoRvKxQLqauYRnrqoCBkkpmGapn9a07Q2f2wdt0X+Y7FUIs75S07kx+PvhiBOxeefuLO3fuzBPXsCRjXaBMQk8TZflGvdizZ/b97Z02FPdmb+uSxPdlfqdqibFc0kuAr198cTJtDUsFx1mnXacBQCbGUgDlCZbbELuFij3Hf3lCd15AHsDXd+6cSHy1hiUi1K7VAIJYGss3t81SEbUvT7JkKF++fATfnkxdx5LBPKuT9UmNClcXY/mmgLbMsp+Ksvz1EspvX7740zLMtSxntQWrpWqaTqWxfGvLLNvgaYIsF8RRvnrx619ymIvpr4qaar46swhhTRVj+ZaAtseSDFtMwrb6rxaQcZSv+NISzFqWdWIGhuBz/K0f1emtH31k2byZ7eL9SDROmGGUgF+I2Ze/momj/PZVtcxg/nlhzXlZcomxrEXJ9PssdobDlllcdOkc2uyCwrEhaqvfnQL7E8AMJcPHSuausuR+D8aqagwuuOFrwD+GICxqq9+d6c8M5fy/V3+Z/7NVlj8sX+y3eq9+TyxVLNlpGh2CNqvT3UweKQd9sXcxW31O7+4iyrt3P/z2w0tg+UMB8WdP6dzhTMSBfX3xgWD8L7PV36vXf/znhwLaHsu/ibKsjileS/VamlcoInrwTq1uv3PmQNtlSWDpeGa9/kFEc5YX3Aq6cHjNtepVCGxjGTL6UbhnDJle1u2Xt+t14M5Ykgvt8LrAEpWNw1IkYeAt0qguSbMuw4zllsqlgHdXenhCNaLnz5mI4y6oaXa2yFKepBxSYu3t5IhXkqUc7TGVb3vnXJoe8BqzlK6GpTw1LOWpYSlPDUt5aljKU8NSnhqW8tSwlKeGpTw1LOWpYSlPDUt5aljKU8NSnhqW8tSwlKeG5esqUZLy1JA9TbkclsRGSbmA7Q2HAu6MECh+OZQQwzTpclgmI3xcLRxf4IdL1cAZpIozTtp9e0BaNmc5xp4ztjHgcTXybCssCcsIIb2xPbTbA2VAFNvXPDx2BjiJbO9q3AWg53sJOOAOhuBGKVFBBa3rRQMNogKXvbK2wxKc5x3H70WF0wN6jFHiU8AQd51k5Bty4oJctEArzAJy0IMoPow0DTOWYU6LiIJfhGV3gy2xRGacQe4bfhSbnoY5Sw3ULDPyQEqPlosX0DhyoZfR4DuDxx0pWYJbRDroUHVw2hJL9TAugl6sPz+0oKA4GVGWkdDMjKj47mpMD+5obic0eha1DBq7VFMdrUVj6nZoHMaudj6W2Enrn8EVS+RoHSMs4o/1wtV7OsUpz0EvNAy9YBm7EiyVMiKGxsM+hezF8jzp2zQJmIHOwzKFpH7PyXMcVR9IeVAvrQzacSIjV4ElIipRVYIxIVjlvUrRpOuTWmpNuQQPcltxAJKOr5g5LkYKYoldltgHGBMyhjG4NILj9V/FlCX/RN4ZirBcYJVlZNIFq8zHlXj2VCo7D026EE36EqHp/ytZRrTr6dA22I0VPwPd7DEA4OvBuAyxGffBjcHIRjjy1nYsPmFfVhlR5hlRFjLyPdAqlnEYMRNgNGIsiyjLfCPUeOJhZIHOVvV86oIVwegoWvvo+B77kKe1jiV75FqxHn2XGY8C9uRSePysyACLjrI41y2wTN8tirXRDBuWFcuI+qNRRGMeNDfgcUmhFx76NMqDXHefj3wwLPChYTnTCpaJTl2XUsPSKe3r1HB1SnhiMk10DfbDrCtjfQyyhqVSWlPcYAlpiHHIQ7dxw6VKxCEzsnhAMraO21vrYjY2LCd9y7ndgqeBxsohT6QyqngX7dLC4Ytrw182LLlKg4WHftxTKuPlRKIytbJqSDUsJR6+YSnv8NeT5d43P6/Xf/33P9brf9T5MI3ryRK9KxDt8a+/+UW93tNnJud1ZSkS7fGvv6kfufyD996ZTThwbVkKRCgUZKlPD3pdWb4hkaV2zVl+IxChUJhldcNMrxdL9WJYVgftJNsINrMratlzlvUBCm/+70Ys0zHapRkWLlpun9eL82llRFi+uwnLdDjmPvvWTmWwMIFesmrmoqR7wu2F1U5wmqxaA+nZe6FDfto2xBgJRNUTZPmXrNdqtZxEEQ1kf051I4B2D6ADEVTzCTkQtavz9uC5jVpsvQZtdpoAASGkw8TXA4DmASSEbRY5MFYGIx+cilQKMCy/kYF/DEMlAeiRKFJG3hGAfnYTVWq2hsPOiG35pkCEQuFyiVVV5VV0WymWvk/HgfYoDh/5dPLt4djv2qhsuMo9FxID1OEo6KkZr9XGvZ7nOYTwuc0KoE6gwcCArAN2BnoLJodA7hiGzIPzQPdAhRbN2fdxmKsuuFQjZzRn7yHCW1VHcGiIRHsUZOlWEwltq4Vx5IVxrj+KGTZGikTgMRAmuOybhCL0zQK6XXDVR6CHJUs1aRuGEWLGkmbQPcpdKChYfM49P/wYXA0NYaQpWswuV6J4AQOuQ96FmKUUoQGufiZLhl/F2Bi7uisQoVC8XBK0xQZGP6JZV38eh3lGQxWlaWoEQc/VQ1UBp2y4sqxYN/I8YyxDquLxOIr4HFn9cv5Cq5jPE5dTxo1tkdq2mY8NnXlwns8LL8Ru7FLfD3SDl8sVp4Z4jW5IbZFoj+Ist4SxYhn4EFMfrOde2fqkarFRdrEgvOHKN3W/mx/qMDT4FHuHYblFGLJyaYPvBqOcz7k3KZe5DyZvdiHY7fFpzxjwwYixDDMYBXx6Q2Abj9Z1NeG15KlAtEdxllu1hALPNSjVDfbDSsweqgKGlqF3EpsmSdlGpRsaNdzQdRkphCf9VhKD7cb2dXXaZu/U9F2L0pBHPVfL+WAYtDTha3gLFzVszTVC9jErrvFKbGeRaI+7ybI74PMJsYur7F9TnQ1vR0Fl3NBJw9Wkww0u+wKV7S68yaDsHESryXPYlmZQHgnxCU14H5PyNsWgqlXbV3UM3pFn/XWHBCIU7ijLtsvOXyX85Kexi2Y362lII7wQ+mjhpEnVfDVdmbT5o2mywfQY/KDqdDuhCEnobwLBHv9vJ1mWdmzZMHXG427SRqWwa59voixtUvUImvTNKSd6Os2pOsS03au+lYuzrI2pt6ssFSmhtKoDSQnKJRKhcDdZdsarS8oKb/IsPxDS8o+EgR2CLEXaKLZsE/UBTPsZRKhzNIY4gr4CY+Y5KgvepOdHC35g4HW544ja3JckfFiJCTlmaXw6VhkRzvbu/XO9bh2K6GDL5fLYDKNI8x1mPw7AMJ+pzHMcjSf+K/cm017pBx4xP9DQwMxx5QcOPSZ2f8SQUeixNBcyTUrNlmod1Ed7fEco2qe+3VrLyNSDoy4wX5EWIz3LQ+bpmf7Um9RN0LPKD+ye9APtdp8Zl5ixNJh3ZHCWNf2jRIXK2Y2laMtDI1i59MduYc1ZZrybnkZSO237zJJnNnjpB2ZubFA/mPqBrSgqN8PMa3qUWRVLOfOwXkBIyO3Ig6yA4DlnGed6BiEEVWdGRCpvMjQnfmDA/MBncz8Q8R5mnOV3AZ9secQcd0mjOvaEgj2KSUZ+hIWZY8hdPH36gtgyaMly4k3azA/kTqJV+YFWmHA/sKoj49d4YZVeIndCr1GjylliFnY5I+3UFdTYNTu50Uy9SXKmH1hOIco8bujQST/IcJemWr4UIVWtXLzJMJG+zsioi94kmfR9xAu+JB/DWM7mRCbbEyzHVL/aKv2/uYuHSqdycYO9tX4gKiuEVjih11yICM7y+5rbSxHub/0jX0+bFq8LnUliWUk/GabpuNtO+m27fvNGa9SCyM/tYDTMIHKvUQeCi5ADmgu6GYXZUWM4nFMOhMz55ywDunZ4VKNaORCbQM2RkY0oba7xc8npZn5BjeMsHtOwKZbnUusoLJvowrI24LJzc7Xl+Dw8AlZx1Wjc6DwiVFN5zxbS+FnnFSJNcZSm3SqO/w+aCwGQKq4YHgAAAABJRU5ErkJggg==" alt="Inserting after specified node" class="img">
+        </section> 
+        <section class="bonus" id="Deletion">
+          <header>Deletion</header>
+          <p>The Deletion of a node from a singly linked list can be performed at different positions. Based on
+      the position of the node being deleted, the operation is categorized into the following categories</p>
+          <ol>
+            <li>Deleting at Beginning</li>
+            <li>Deleting at the End of the List</li>
+            <li>Deleting after specified node</li>
+          </ol>
+        </section> 
+        
+      <section class="main-section" id="Deleting_at_Beginning">
+          <header>Deleting at Beginning
+      </header>
+          <p>Deleting a node from the beginning of the list is the simplest operation of all. It just need a few
+      adjustments in the node pointers. Since the first node of the list is to be deleted, therefore, we just
+      need to make the head, point to the next of the head. This will be done by using the following
+      statements<br>
+      ptr = head;<br>
+      head = ptr->next;<br><br>
+      Now, free the pointer ptr which was pointing to the head node of the list. This will be done by
+      using the following statement.<br>
+      free(ptr)<br></p>
+          <img src="data:image/jpeg;base64,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ffSZ8Opj1BqP5fvb5R6g1H8v3t8o6lvkiirhDr1HdX8h/wATn+sutGo/ytah7SVdn4/5XjlbARx7T2QD954c+mXq1qQOdfD72mqnqhahcqKVLsXYjIyzcWY/eZTdibtqfbP057oCwaVjRaALbC1iXZyNTnizEn/cH8QPPmOHAdEdTGo6pXWABhSwVg65z3WByrDyIm3/AA3qfOv3tITF21Htn6dJ1d/9vT/SP+J8kjonTmmpEbGVGDjlEhQT4iJAx2DyE+BAPATOIGOweQjaPKZRAREQEREDj+mut7ae+ylaq3K4AJ1BVizaey1D2YUnbmsgnPDOcHBknqv1jfWmwNXWvZrXudLiwdrKK7TtUqMKO0xnJPCW3qqvtXt29+zG8nj9VQox5cB4c5Jo0iJnaqrnyAH/ABJ9hIiIkBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBI+r1C0o9jkKlal7GOe6qgszHHHgAZIlV1lqWzSaxGdalei1GsYErWpqYF2A8ADn9IEOzrfpFIzY2CHLHsbcIKkV3L93uja6kE8wwxnIlk/StKqjs+1bBlCysCf0IyP1nNp1OosQ7rLWNodXftBmwWVLWyEkctlaYxxG37znoL+jKbEVbArhOGSeROP8A8kjT0h1go09tVdhZe1RrFfaSoCvWmGI4rk2LxIxwOSI/xFpsWEWFuyO19tdjH6zKSoUEuAyOCy5AKNk8DI9/RGn1y12hmZGpNVbq2A1dj1vkcOea04+WZW29QNIe0BGBa/asvdwzbnJVsjvrmxvrZI7uCNq4C2/xLpzdVSjGxrTtyikov0PajL8jldvAZPeXIAOZezkeierGnrat67nfsmIC9oGUOtQobIH8W1QD96/ec9T2gyFyMkZC5GSBzOPKJG2JhvA4ZGfLMbx5j3jw5yBnE0VXo+7aytsO1trA7TgHBxyOCOH3zfAREQEREBERAREQEREBERAREQEREBERAREQEREBERAREQEREBERASB0zojqdPqKQdhvqekPjO0ujLnHjjMnyB0xp2t0+oRc73rdFw207mQgYbhjjjjA42/qIxOUsREDmwVCs7U3VadCVCkbXzSSGHtn85iOpF+93NtD77FtZG042WFbLnG9FIDH6Y8faRT5zUeiekaaWSg2IEetUrDq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" alt="Deleting at Beginning" class="img">
+          C Function:<br>
+          <code class="code">
+            void begdelete()<br>
+       {<br>
+       struct node *ptr;<br>
+       if(head == NULL)<br>
+       {<br>
+       printf("\nList is empty");<br>
+       }<br>
+       else<br>
+       {<br>
+       ptr = head;<br>
+       head = ptr->next;<br>
+       free(ptr);<br>
+       printf("\n Node deleted from the begining ...");<br>
+       }<br>
+       } 
+          </code>
+          
+        </section> 
+           <section class="main-section" id="Deleting_at_the_End_of_the_List"> 
+          <header>Deleting at the End of the List</header>
+          <p>Here are two scenarios in which, a node is deleted from the end of the linked list.
+      </p>
+          <ol>
+            <li>There is only one node in the list and that needs to be deleted.</li>
+            <li>There are more than one node in the list and the last node of the list will be deleted.</li>
+          </ol>
+          <h4>In the first scenario,</h4>
+          <p>the condition head → next = NULL will survive and therefore, the only node head of the
+      list will be assigned to null. This will be done by using the following statements.<br><br>
+      ptr = head;<br>
+       head = NULL;<br>
+       free(ptr)</p>
+          <h4>In the second scenario,
+      </h4>
+          <p>The condition head → next = NULL would fail and therefore, we have to traverse the
+      node in order to reach the last node of the list.<br>
+      For this purpose, just declare a temporary pointer temp and assign it to head of the list.
+      We also need to keep track of the second last node of the list. For this purpose, two
+      pointers ptr and ptr1 will be used where ptr will point to the last node and ptr1 will point
+      to the second last node of the list.<br>
+      this all will be done by using the following statements.<br><br>
+      ptr = head; <br>
+       while(ptr->next != NULL)<br>
+       {<br>
+       ptr1 = ptr;<br>
+       ptr = ptr ->next;<br>
+       }<br><br>
+      Now, we just need to make the pointer ptr1 point to the NULL and the last node of the
+      list that is pointed by ptr will become free. It will be done by using the following
+      statements.<br><br>
+      ptr1->next = NULL;<br>
+       free(ptr);</p>
+          <img src="data:image/png;base64,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" alt="Deleting at the End of the List
+      " class="img">
+             C Function:<br>
+          <code class="code">
+            void end_delete()<br>
+       {<br>
+       struct node *ptr,*ptr1;<br>
+       if(head == NULL)<br>
+       {<br>
+       printf("\nlist is empty"); <br>
+       }<br>
+       else if(head -> next == NULL)<br>
+       {<br>
+       head = NULL;<br>
+       free(head);<br>
+       printf("\nOnly node of the list deleted ...");<br>
+       }<br>
+       else<br>
+       {<br>
+       ptr = head;<br>
+       while(ptr->next != NULL)<br>
+       {<br>
+       ptr1 = ptr;<br>
+       ptr = ptr ->next;<br>
+       }<br>
+       ptr1->next = NULL;<br>
+       free(ptr);<br>
+       printf("\n Deleted Node from the last ...");<br>
+       }<br>
+       }<br>
+      }<br>
+      
+          </code>
+        </section> 
+        
+        <section class="main-section" id="Deleting_after_specified_node">
+          <header>Deleting after specified node</header>
+          <p>In order to delete the node, which is present after the specified node, we need to skip the desired
+      number of nodes to reach the node after which the node will be deleted. We need to keep track of
+      the two nodes. The one which is to be deleted the other one if the node which is present before
+      that node. For this purpose, two pointers are used: ptr and ptr1.<br>
+      Use the following statements to do so.<br>
+      ptr=head;<br>
+       for(i=0;i&ltloc;i++)<br>
+       {<br>
+       ptr1 = ptr;<br>
+       ptr = ptr->next;<br>
+      
+       if(ptr == NULL)<br>
+       {<br>
+       printf("\nThere are less than %d elements in the list..",loc);<br>
+       return;<br>
+       }<br>
+       } <br>
+      Now, our task is almost done, we just need to make a few pointer adjustments. Make the next of
+      ptr1 (points to the specified node) point to the next of ptr (the node which is to be deleted).
+      This will be done by using the following statements.</p>
+          <img src="data:image/jpeg;base64,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" alt="data:image/jpeg;base64,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" class="img">
+          
+        </section>
+        
+        <section class="main-section" id="Traversing">
+          <header>Traversing</header>
+          <p>Traversing is the most common operation that is performed in almost every scenario of singly
+      linked list. Traversing means visiting each node of the list once in order to perform some operation
+      on that. This will be done by using the following statements.<br>
+      ptr = head;<br>
+       while (ptr!=NULL)<br>
+       {<br>
+       ptr = ptr -> next;<br>
+       } </p>
+        </section>
+        
+        <section class="main-section" id="Advantage">
+          <header>Advantage</header>
+          <ol>
+            <li>Insertions and Deletions can be done easily.</li>
+            <li>It does not need movement of elements for insertion and deletion.</li>
+            <li>It space is not wasted as we can get space according to our requirements.</li>
+            <li>Its size is not fixed.</li>
+            <li>It can be extended or reduced according to requirements.</li>
+            <li>Elements may or may not be stored in consecutive memory available.</li>
+            <li>It is less expensive.</li>
+          </ol>
+        </section> 
+        
+        <section class="main-section" id="Disadvantage">
+          <header>Disadvantage</header>
+          <ol>
+            <li>It requires more space as pointers are also stored with information.</li>
+            <li>Different amount of time is required to access each element.</li>
+            <li>If we have to go to a particular element then we have to go through all those elements that
+      come before that element.</li>
+            <li>we can not traverse it from last & only from the beginning.</li>
+            <li>It is not easy to sort the elements stored in the linear linked list.</li>
+          </ol>
+        </section>
+        
+         <section class="main-section" id="Applications">
+          <header>Applications</header>
+          <p>Graphs, queues, and stacks can be implemented by using Linked List.</p>
+        </section>
+        
+      </main>
+</body>
+</html>
+
+
+
+
+
+
